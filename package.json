@@ -1,7 +1,7 @@
 {
-  "name": "captcha-screenshot",
+  "name": "scraptcha",
   "version": "1.0.0",
-  "main": "capture.js",
+  "main": "recaptcha.js",
   "scripts": {
     "recaptcha": "node recaptcha.js",
     "hcaptcha": "node hcaptcha.js"
