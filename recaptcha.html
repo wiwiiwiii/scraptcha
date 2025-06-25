@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标准reCAPTCHA v2 (可能出现图片验证)</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-form {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .g-recaptcha-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .important-note {
+            background-color: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #6d4d00;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-form">
+        <h2>登录</h2>
+
+        <form id="loginForm" action="#" method="POST">
+        
+            <div class="important-note">
+                <strong>请注意：</strong>下方验证码是否显示为图片选择题（如“选择所有自行车”），是由Google根据您的网络环境和行为自动决定的，开发者无法强制。
+            </div>
+
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <!-- reCAPTCHA v2 渲染位置 -->
+            <div class="g-recaptcha-container">
+                <!-- 
+                    这是实现你想要效果的标准方式。
+                    请将 data-sitekey 替换为你自己的真实站点密钥，
+                    并在Google后台调整安全级别，以增加看到图片验证的概率。
+                -->
+                <div class="g-recaptcha" data-sitekey="YOUR_OWN_SITE_KEY"></div>
+                <!-- 提示：这里我写了 YOUR_OWN_SITE_KEY, 你必须去Google注册并替换它，否则无法工作 -->
+            </div>
+
+            <button type="submit" class="submit-btn">登录</button>
+        </form>
+    </div>
+
+    <!-- 1. 引入 Google reCAPTCHA API 脚本 -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- 2. 内嵌原生 JavaScript 进行前端校验 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('loginForm');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // 阻止表单默认提交
+
+                // 获取reCAPTCHA的响应token
+                const recaptchaResponse = grecaptcha.getResponse();
+
+                if (recaptchaResponse.length === 0) {
+                    // 如果用户没有点击复选框或完成图片挑战
+                    alert('请完成人机身份验证。');
+                } else {
+                    // 前端验证通过，可以提交到后端
+                    console.log('reCAPTCHA Token:', recaptchaResponse);
+                    alert('前端验证成功！现在应将表单和Token提交到后端。');
+                    // 在真实项目中，这里会执行 form.submit() 或使用 fetch API 发送数据
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "captcha-screenshot",
+  "version": "1.0.0",
+  "main": "capture.js",
+  "scripts": {
+    "recaptcha": "node recaptcha.js",
+    "hcaptcha": "node hcaptcha.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "dotenv": "^16.5.0",
+    "puppeteer": "^24.10.2",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}

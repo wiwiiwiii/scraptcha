@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标准 hCaptcha (可能出现图片验证)</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-form {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .h-captcha-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .important-note {
+            background-color: #e6f7ff;
+            border: 1px solid #91d5ff;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #0050b3;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-form">
+        <h2>登录 (hCaptcha)</h2>
+
+        <form id="loginForm" action="#" method="POST">
+        
+            <div class="important-note">
+                <strong>请注意：</strong>下方 hCaptcha 是否显示为图片选择题，是由 hCaptcha 根据您的网络环境和行为自动决定的。
+            </div>
+
+            <!-- hCaptcha 渲染位置 -->
+            <div class="h-captcha-container">
+                <!-- 
+                    这是 hCaptcha 的标准实现方式。
+                    data-sitekey 已使用 hCaptcha 官方提供的测试密钥，可直接运行。
+                    在实际项目中，请替换为您自己的站点密钥。
+                -->
+                <div class="h-captcha" data-sitekey="YOUR_OWN_SITE_KEY"></div>
+            </div>
+
+            <button type="submit" class="submit-btn">登录</button>
+        </form>
+    </div>
+
+    <!-- 1. 引入 hCaptcha API 脚本 -->
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
+</body>
+</html>
