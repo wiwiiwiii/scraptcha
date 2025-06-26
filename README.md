@@ -16,3 +16,9 @@ npm run hcaptcha
 ```
 
 images are saved in *_screenshots/
+
+NOTICE: scraped hcaptcha images may be incomplete due to early screenshot
+before rendering finishes, please delete those manually then
+`npm run rename_hcaptcha` and `npm run hcaptcha`
+
+this could be avoided by increasing the delay though
