@@ -1,10 +1,11 @@
 {
-  "name": "scraptcha",
+  "name": "captcha-screenshot",
   "version": "1.0.0",
-  "main": "recaptcha.js",
+  "main": "capture.js",
   "scripts": {
     "recaptcha": "node recaptcha.js",
-    "hcaptcha": "node hcaptcha.js"
+    "hcaptcha": "node hcaptcha.js",
+    "rename_hcaptcha": "node util/bulk_rename.js hcaptcha_screenshots"
   },
   "keywords": [],
   "author": "",
