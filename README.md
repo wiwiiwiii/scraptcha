@@ -13,6 +13,7 @@ serve html first then run following commands in your terminal
 npm i
 npm run recaptcha
 npm run hcaptcha
+npm run geetest
 ```
 
 images are saved in *_screenshots/
