@@ -5,6 +5,7 @@
   "scripts": {
     "recaptcha": "node recaptcha.js",
     "hcaptcha": "node hcaptcha.js",
+    "geetest": "node geetest.js",
     "rename_hcaptcha": "node util/bulk_rename.js hcaptcha_screenshots"
   },
   "keywords": [],
